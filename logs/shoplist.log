@@ -1,0 +1,75 @@
+2019-12-08 16:49:55,287 ERROR: Exception on /api/lists/1/items [GET] [in c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.OperationalError: server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Asus\shoplist\app\api\api_routes.py", line 85, in get_items_of_list
+    list = List.query.get_or_404(id)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask_sqlalchemy\__init__.py", line 422, in get_or_404
+    rv = self.get(ident)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 982, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1094, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 284, in load_on_pk_identity
+    return q.one()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3325, in one
+    ret = self.one_or_none()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3294, in one_or_none
+    ret = list(self)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3367, in __iter__
+    return self._execute_and_instances(context)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3392, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1250, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+
+[SQL: SELECT list.id AS list_id, list.listname AS list_listname, list.user_id AS list_user_id 
+FROM list 
+WHERE list.id = %(param_1)s]
+[parameters: {'param_1': 1}]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-12-08 16:51:52,186 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 18:41:32,978 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 18:41:56,895 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 18:42:38,646 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]

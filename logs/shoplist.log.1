@@ -1,0 +1,125 @@
+2019-12-08 02:50:40,290 ERROR: Exception on /api/users/1/lists/1 [GET] [in c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Asus\shoplist\app\api\api_routes.py", line 61, in get_list
+    return jsonify(List.query.get_or_404(id).to_dict())
+  File "C:\Users\Asus\shoplist\app\models.py", line 117, in to_dict
+    'self': url_for('api.get_list', id=self.id),
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\asus\shoplist\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_list' with values ['id']. Did you forget to specify values ['u_id']?
+2019-12-08 02:52:42,624 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 02:53:34,766 ERROR: Exception on /api/users/1/lists/1 [GET] [in c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Asus\shoplist\app\api\api_routes.py", line 62, in get_list
+    return jsonify(list.to_dict())
+  File "C:\Users\Asus\shoplist\app\models.py", line 117, in to_dict
+    'self': url_for('api.get_list', id=self.id),
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\asus\shoplist\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_list' with values ['id']. Did you forget to specify values ['u_id']?
+2019-12-08 12:49:40,019 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 15:36:09,292 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 15:38:56,810 ERROR: Exception on /api/users/1/lists [GET] [in c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Asus\shoplist\app\api\api_routes.py", line 30, in get_lists_of_user
+    'api.get_lists_of_user', id=id)
+  File "C:\Users\Asus\shoplist\app\models.py", line 14, in to_collection_dict
+    'items': [item.to_dict() for item in resources.items],
+  File "C:\Users\Asus\shoplist\app\models.py", line 14, in <listcomp>
+    'items': [item.to_dict() for item in resources.items],
+  File "C:\Users\Asus\shoplist\app\models.py", line 117, in to_dict
+    'self': url_for('api.get_list', id=self.id),
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\asus\shoplist\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_list' with values ['id']. Did you forget to specify values ['u_id']?
+2019-12-08 15:44:26,705 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 15:44:37,846 ERROR: Exception on /api/lists/1 [GET] [in c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Asus\shoplist\app\api\api_routes.py", line 69, in get_list
+    return jsonify(List.query.get_or_404(id).to_dict())
+  File "C:\Users\Asus\shoplist\app\models.py", line 118, in to_dict
+    'items': url_for('api.get_items_of_list', id=self.id)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\asus\shoplist\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_items_of_list' with values ['id']. Did you forget to specify values ['u_id']?
+2019-12-08 15:53:47,676 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]

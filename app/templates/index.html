@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Привет, {{ user.username }}!</h1>
+    <hr>
+    <h1>Ваши списки покупок:</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.listname.label }}
+            {{ form.listname(size=32) }}<br>
+            {% for error in form.listname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% for list in lists %}
+        <b><a href="{{ url_for('main.show_list', list_id=list.id) }}">{{ list.listname }}</a></b><br>
+    {% endfor %}
+{% endblock %}

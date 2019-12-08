@@ -1,0 +1,124 @@
+2019-12-08 00:52:02,148 ERROR: Exception on / [GET] [in c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column user.token does not exist
+LINE 1: ... AS user_email, "user".password AS user_password, "user".tok...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1947, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2241, in preprocess_request
+    rv = func()
+  File "C:\Users\Asus\shoplist\app\main\routes.py", line 12, in before_request
+    if current_user.is_authenticated:
+  File "c:\users\asus\shoplist\venv\lib\site-packages\werkzeug\local.py", line 348, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\werkzeug\local.py", line 307, in _get_current_object
+    return self.__local()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask_login\utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask_login\login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask_login\login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "C:\Users\Asus\shoplist\app\models.py", line 98, in load_user
+    return User.query.get(int(id))
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 982, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 1094, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\loading.py", line 284, in load_on_pk_identity
+    return q.one()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3325, in one
+    ret = self.one_or_none()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3294, in one_or_none
+    ret = list(self)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3367, in __iter__
+    return self._execute_and_instances(context)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\orm\query.py", line 3392, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 982, in execute
+    return meth(self, multiparams, params)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\sql\elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1101, in _execute_clauseelement
+    distilled_params,
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1250, in _execute_context
+    e, statement, parameters, cursor, context
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1476, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\util\compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\util\compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1246, in _execute_context
+    cursor, statement, parameters, context
+  File "c:\users\asus\shoplist\venv\lib\site-packages\sqlalchemy\engine\default.py", line 581, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column user.token does not exist
+LINE 1: ... AS user_email, "user".password AS user_password, "user".tok...
+                                                             ^
+
+[SQL: SELECT "user".id AS user_id, "user".username AS user_username, "user".email AS user_email, "user".password AS user_password, "user".token AS user_token, "user".token_expiration AS user_token_expiration 
+FROM "user" 
+WHERE "user".id = %(param_1)s]
+[parameters: {'param_1': 2}]
+(Background on this error at: http://sqlalche.me/e/f405)
+2019-12-08 00:52:36,191 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 00:53:12,990 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 00:53:24,872 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 00:53:35,885 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 00:53:53,644 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 00:54:06,705 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 02:24:31,909 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 02:24:45,452 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 02:25:11,750 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 02:30:05,571 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 02:42:13,818 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]
+2019-12-08 02:44:43,137 ERROR: Exception on /api/users/1/lists/1 [GET] [in c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py:1891]
+Traceback (most recent call last):
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\Asus\shoplist\app\api\api_routes.py", line 61, in get_list
+    return jsonify(List.query.get_or_404(id).to_dict())
+  File "C:\Users\Asus\shoplist\app\models.py", line 117, in to_dict
+    'self': url_for('api.get_list', id=self.id),
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\app.py", line 2215, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "c:\users\asus\shoplist\venv\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "c:\users\asus\shoplist\venv\lib\site-packages\werkzeug\routing.py", line 2020, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_list' with values ['id']. Did you forget to specify values ['u_id']?
+2019-12-08 02:50:26,448 INFO: Shoplist startup [in C:\Users\Asus\shoplist\app\__init__.py:57]

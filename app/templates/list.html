@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Список "{{ list.listname }}"</h1>
+    <a href="{{ url_for('main.edit_list', list_id=list.id) }}">Изменить название</a>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.itemname.label }}
+            {{ form.itemname(size=32) }}<br>
+            {% for error in form.itemname.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% for item in items %}
+        {% if item.dir == list %}
+            <ul>
+                {% include '_item.html'%}
+            </ul>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
