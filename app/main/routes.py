@@ -49,6 +49,12 @@ def show_list(list_id):
     return render_template('list.html', title='Список '+list.listname, list=list, items=items, form=form)
 
 
+@bp.route('/lists/<list_id>', methods=['GET', 'POST'])
+def show_list_from_app(list_id):
+    list = List.query.filter_by(id=list_id).first_or_404()
+    items = list.get_items()
+    return render_template('list_from_app.html', title='Список '+list.listname, list=list, items=items)
+
 @bp.route('/list/<list_id>/edit_list', methods=['GET', 'POST'])
 @login_required
 def edit_list(list_id):
