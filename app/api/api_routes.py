@@ -5,27 +5,31 @@ from app import db
 from app.api.errors import bad_request
 from app.api.auth import token_auth
 
+""""
+@bp.route('/users/<string:username>', methods=['GET'])
+def login(username):
+    return jsonify(User.query.filter_by(username=username).first_or_404().to_dict())
+"""
+
 @bp.route('/users/<int:id>', methods=['GET'])
 # @token_auth.login_required
 def get_user(id):
     return jsonify(User.query.get_or_404(id).to_dict())
 
-"""
 @bp.route('/users', methods=['GET'])
-@token_auth.login_required
 def get_users():
     page = request.args.get('page', 1, type=int)
-    per_page = min(request.args.get('per_page', 10, type=int), 100)
+    per_page = min(request.args.get('per_page', 50, type=int), 100)
     data = User.to_collection_dict(User.query, page, per_page, 'api.get_users')
     return jsonify(data)
-"""
+
 
 @bp.route('/users/<int:id>/lists', methods=['GET'])
 # @token_auth.login_required
 def get_lists_of_user(id):
     user = User.query.get_or_404(id)
     page = request.args.get('page', 1, type=int)
-    per_page = min(request.args.get('per_page', 10, type=int), 100)
+    per_page = min(request.args.get('per_page', 50, type=int), 100)
     data = User.to_collection_dict(user.lists, page, per_page,
                                    'api.get_lists_of_user', id=id)
     return jsonify(data)
@@ -49,6 +53,30 @@ def create_user():
     response.headers['Location'] = url_for('api.get_user', id=user.id)
     return response
 
+@bp.route('/login', methods=['POST'])
+# @token_auth.login_required
+def login():
+    data = request.get_json() or {}
+    if 'username' not in data or 'password' not in data:
+        return bad_request('must include username and password fields')
+    user = User.query.filter_by(username=data['username']).first()
+    if user is None:
+        return bad_request('wrong username')
+    if user.password != data['password']:
+        return bad_request('wrong password')
+    response = jsonify(user.to_dict())
+    response.status_code = 200
+    response.headers['Location'] = url_for('api.get_user', id=user.id)
+    return response
+
+@bp.route('/users/<int:id>', methods=['DELETE'])
+# @token_auth.login_required
+def remove_user(id):
+    user = User.query.get_or_404(id)
+    db.session.delete(user)
+    db.session.commit()
+    return jsonify(user.to_dict())
+
 @bp.route('/lists/<int:id>', methods=['GET'])
 # @token_auth.login_required
 def get_list(id):
@@ -59,7 +87,7 @@ def get_list(id):
 def get_items_of_list(id):
     list = List.query.get_or_404(id)
     page = request.args.get('page', 1, type=int)
-    per_page = min(request.args.get('per_page', 10, type=int), 100)
+    per_page = min(request.args.get('per_page', 50, type=int), 100)
     data = List.to_collection_dict(list.items, page, per_page,
                                    'api.get_items_of_list', id=id)
     return jsonify(data)
