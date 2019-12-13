@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        H1 {
+            font-size: 100%;
+            font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+            color: #333366;
+        }
+        LI {
+            font-size: 100%;
+            font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+            color: #333366;
+        }
+  </style>
+</head>
+<body>
+    <h1>Список "{{ list.listname }}"</h1>
+    {% for item in items %}
+        {% if item.dir == list %}
+            <ul>
+                <li> {{ item.itemname }}</li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
